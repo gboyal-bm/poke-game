@@ -44,10 +44,7 @@ header {
   background-position: center;
   background-repeat: no-repeat;
 }
-.card-front:hover {
-  cursor: pointer;
-  transform: scale(1.05);
-}
+
 .rotated {
   transform: rotateY(180deg);
 }
