@@ -4,10 +4,11 @@ const game = document.getElementById("game");
 let isPaused = false;
 let firstPick;
 let matches = 0;
+let gameSize = 6;
 
 const loadPokemon = async () => {
   const randomIDs = new Set();
-  while (randomIDs.size < 8) {
+  while (randomIDs.size < gameSize) {
     const randomID = Math.floor(Math.random() * 151) + 1;
     randomIDs.add(randomID);
   }
@@ -15,6 +16,22 @@ const loadPokemon = async () => {
   const pokePromises = [...randomIDs].map((id) => fetch(pokeAPIURL + id));
   const pokemon = await Promise.all(pokePromises);
   return await Promise.all(pokemon.map((res) => res.json()));
+};
+const clickDifficulty = (event) => {
+  const difficulty = event.target.dataset.difficulty;
+  if (!difficulty) return;
+  switch (difficulty) {
+    case "easy":
+      gameSize = 6;
+      break;
+    case "medium":
+      gameSize = 8;
+      break;
+    case "hard":
+      gameSize = 12;
+      break;
+  }
+  console.log(gameSize);
 };
 
 const displayPokemon = (pokemon) => {
@@ -88,5 +105,3 @@ const resetGame = () => {
     isPaused = false;
   }, 200);
 };
-
-resetGame();

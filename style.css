@@ -15,7 +15,7 @@ header {
 #game {
   display: grid;
   grid-template-columns: repeat(4, 160px);
-  grid-template-rows: repeat(4, 160px);
+  grid-template-rows: repeat(8, 160px);
   gap: 10px;
 }
 .card {
