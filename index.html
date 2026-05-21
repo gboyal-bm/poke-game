@@ -10,6 +10,11 @@
     <div class="container">
       <header>
         <h1>Pokematch</h1>
+        <span
+          >Clicks: <strong id="clicks">0</strong> | Pairs:
+          <strong id="matched">0</strong>/<strong id="total">0</strong> | Time:
+          <strong id="timer">--</strong></span
+        >
         <div>
           <button data-difficulty="easy" onclick="clickDifficulty(event)">
             Easy
@@ -24,10 +29,14 @@
         <div>
           <button onclick="resetGame()">Start Game</button>
           <button onclick="resetGame()">Reset Game</button>
+          <button onclick="activatePowerUp()" id="powerUpBtn">Power-Up</button>
+          <button onclick="toggleTheme()" id="themeBtn">Dark</button>
         </div>
       </header>
+      <div id="message"></div>
       <div id="game"></div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

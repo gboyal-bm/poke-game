@@ -11,6 +11,7 @@ header {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  gap: 20px;
 }
 #game {
   display: grid;
@@ -43,6 +44,46 @@ header {
   background-position: center;
   background-repeat: no-repeat;
 }
+.card-front:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
 .rotated {
   transform: rotateY(180deg);
+}
+
+:root {
+  --bg: #fff;
+  --text: #000;
+}
+[data-theme="dark"] {
+  --bg: #1a1a2e;
+  --text: #e0e0e0;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s;
+}
+
+.card.matched {
+  box-shadow: 0 0 0 3px #2ecc71;
+  pointer-events: none;
+}
+
+#timer.warning {
+  color: red;
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0.3;
+  }
+}
+
+#message {
+  font-size: 1.1rem;
+  font-weight: bold;
+  min-height: 1.5em;
+  padding: 8px 0;
 }
